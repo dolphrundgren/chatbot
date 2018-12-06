@@ -1,0 +1,85 @@
+'use strict';
+
+
+// The tutorial recommends using dotenv for the following variable declarations.
+
+const AWS = require("aws-sdk");
+const awsRegion = "us-east-1";
+
+AWS.config.update({
+  accessKeyId: "AKIAI77BV3U7O4ZI5YHA",
+  secretAccessKey: "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",
+  region: awsRegion,
+});
+
+const lexruntime = new AWS.LexRuntime();
+const crypto = require("crypto");
+
+const params = {
+  botAlias: "ResumeBot" /* required */,
+  botName: "ResumeBot" /* required */
+};
+
+
+module.exports = Utterance => {
+
+    Utterance.openingStatement = cb => {
+      // create a unique sessionid to keep track of the session
+      let sessionid = crypto.randomBytes(20).toString("hex");
+
+      let response = { message: "Hi there. You are interacting with Hunter Templeman's ResumeBot!"}
+
+      cb(null, sessionid, response)
+    };
+
+
+
+    Utterance.remoteMethod("OpeningStatement", {
+      returns: [
+        {
+          arg: "SessionKey",
+          type: "string"
+        },
+        {
+          arg: "Response",
+          type: "string"
+        }
+      ]
+    })
+
+    Utterance.message = function (sessionkey, message, cb) {
+      let req_params = Object.assign(params, {
+        userId: sessionkey,
+        inputText: message
+      });
+
+      lexruntime.postText(req_params, (err, data) => {
+        if (err) console.log(err, err.stack);
+        else cb(null, sessionkey, data);
+      });
+    };
+
+    Utterance.remoteMethod("message", {
+      accepts: [
+        {
+          arg: "SessionKey",
+          type: "string"
+        },
+        {
+          arg: "Message",
+          type: "string"
+        }
+      ],
+      returns: [
+        {
+          arg: "SessionKey",
+          type: "string"
+        },
+        {
+          arg: "Response",
+          type: "string"
+        }
+      ]
+    });
+
+};

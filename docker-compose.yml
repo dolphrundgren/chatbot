@@ -1,0 +1,31 @@
+version: "3"
+services:
+
+  web:
+      build: .
+      ports:
+      - "3000:3000"
+      networks:
+      - "reswork"
+      command: ["./wait-for-it.sh", "db:3306", --, "npm", "start"]
+  db:
+      image: mysql:5.7
+      ports:
+      - "3306:3306"
+      networks:
+      - "reswork"
+      volumes: 
+      - lex-data:/var/lib/mysql
+      restart: always
+      environment:
+          MYSQL_ROOT_PASSWORD: easycrack
+          MYSQL_DATABASE: resume
+          MYSQL_USER: applicant
+          MYSQL_PASSWORD: pleasehireme
+
+networks:
+  reswork:
+
+volumes:
+  lex-data:
+      

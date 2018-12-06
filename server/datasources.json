@@ -1,0 +1,11 @@
+{
+    "resume": {
+        "name": "resume",
+        "connector": "mysql",
+        "host": "db",
+        "port": 3306,
+        "database": "resume",
+        "password": "pleasehireme",
+        "user": "applicant"
+    }
+}
