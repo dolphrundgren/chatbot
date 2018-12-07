@@ -49,16 +49,6 @@ class Bot extends Component {
       .then(body => {
         this.recordMessage('BOT', body.Response.message)
     })
-    
-    fetch('/api/utterances/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: message
-      })
-    })
   }
 
   changeInput = e => {

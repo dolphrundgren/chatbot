@@ -2,8 +2,6 @@
 
 
 // The tutorial recommends using dotenv for the following variable declarations.
-
-
 const AWS = require("aws-sdk");
 const awsRegion = "us-east-1";
 
@@ -22,20 +20,25 @@ const params = {
 };
 
 
-module.exports = Utterance => {
+module.exports = utterance => {
+  
+  var sessionid = crypto.randomBytes(20).toString("hex");
 
-    Utterance.openingStatement = cb => {
+    utterance.openingStatement = cb => {
       // create a unique sessionid to keep track of the session
-      let sessionid = crypto.randomBytes(20).toString("hex");
+   
+      let response = { 
+        message: "Hi there. You are interacting with Hunter Templeman's ResumeBot!",
+        sessionid: sessionid
+      }
 
-      let response = { message: "Hi there. You are interacting with Hunter Templeman's ResumeBot!"}
-
+      utterance.create(response)
+      
       cb(null, sessionid, response)
+
     };
 
-
-
-    Utterance.remoteMethod("openingStatement", {
+    utterance.remoteMethod("openingStatement", {
       returns: [
         {
           arg: "SessionKey",
@@ -48,19 +51,31 @@ module.exports = Utterance => {
       ]
     })
 
-    Utterance.message = function (sessionkey, message, cb) {
+    utterance.message = function (sessionkey, message, cb) {
       let req_params = Object.assign(params, {
         userId: sessionkey,
         inputText: message
       });
 
+      let response = { 
+        message: message,
+        sessionid: sessionkey
+      }
+      utterance.create(response)
+
       lexruntime.postText(req_params, (err, data) => {
         if (err) console.log(err, err.stack);
-        else cb(null, sessionkey, data);
+        else 
+          var lexresponse = { 
+            message: data.message,
+            sessionid: sessionid 
+          }
+          utterance.create(lexresponse)
+          cb(null, sessionkey, data);
       });
     };
 
-    Utterance.remoteMethod("message", {
+    utterance.remoteMethod("message", {
       accepts: [
         {
           arg: "SessionKey",
