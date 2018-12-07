@@ -14,7 +14,7 @@
     ]
   },
   "utterance": {
-    "dataSource": null,
+    "dataSource": "resume",
     "public": true
   }
 }

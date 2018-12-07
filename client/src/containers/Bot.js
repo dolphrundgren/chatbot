@@ -10,7 +10,7 @@ class Bot extends Component {
   };
 
   componentDidMount = () => {
-    fetch('/api/utterances/firstOpen', {
+    fetch('/api/utterances/openingStatement', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -48,6 +48,16 @@ class Bot extends Component {
     }).then(res => res.json())
       .then(body => {
         this.recordMessage('BOT', body.Response.message)
+    })
+    
+    fetch('/api/utterances/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: message
+      })
     })
   }
 

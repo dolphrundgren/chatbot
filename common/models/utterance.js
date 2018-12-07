@@ -3,6 +3,7 @@
 
 // The tutorial recommends using dotenv for the following variable declarations.
 
+
 const AWS = require("aws-sdk");
 const awsRegion = "us-east-1";
 
@@ -34,7 +35,7 @@ module.exports = Utterance => {
 
 
 
-    Utterance.remoteMethod("OpeningStatement", {
+    Utterance.remoteMethod("openingStatement", {
       returns: [
         {
           arg: "SessionKey",
