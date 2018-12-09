@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import "../styles/Bot.css";
+import Typing from 'react-typing-animation';
 
 class Bot extends Component {
   state = {
@@ -62,6 +63,7 @@ class Bot extends Component {
     this.submitMessage();
   }
 
+
   render() {
 
     const messages = (
@@ -73,7 +75,9 @@ class Bot extends Component {
                 <div
                   key={message.SENDER + index}
                   className={`message ${message.SENDER}`}>
-                  {message.MESSAGE}
+                  {message.SENDER == 'BOT' 
+                    ? <Typing speed={20}> <span> {message.MESSAGE} </span> </Typing>
+                    : message.MESSAGE}
                 </div>
               )
             })
