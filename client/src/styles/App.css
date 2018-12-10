@@ -1,9 +1,24 @@
 body, html, #root, .App {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 0;
-    grid-template-rows: repeat(9, 1fr);
+    grid-template-rows: 0;
     grid-row-gap: 0;
     width: 100vw;
     height: 100vh;
+}
+
+.Bot {
+    grid-column-start: 2;
+    grid-column-end: 3; 
+}
+
+.input-container-fadein {
+    opacity: 1;
+    transition: 2s;
+}
+
+.input-container-fadeout {
+    opacity: 0;
+    transition: 1s;
 }

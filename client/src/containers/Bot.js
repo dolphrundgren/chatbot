@@ -7,7 +7,8 @@ class Bot extends Component {
   state = {
     sessionkey: null,
     input: "",
-    messages: []
+    messages: [],
+    firstOpen: false
   };
 
   componentDidMount = () => {
@@ -76,9 +77,9 @@ class Bot extends Component {
                   key={message.SENDER + index}
                   className={`message ${message.SENDER}`}>
                   {message.SENDER == 'BOT' 
-                    ? <Typing speed={20}> <span> {message.MESSAGE} </span> </Typing>
+                    ? <Typing speed={20} hideCursor onFinishedTyping = {() =>{this.setState({ firstOpen: true})}}>  <span> {message.MESSAGE} </span> </Typing>
                     : message.MESSAGE}
-                </div>
+                </div> 
               )
             })
           }
@@ -87,7 +88,7 @@ class Bot extends Component {
     )
 
     const input = (
-      <div className="input-container">
+      <div className={this.state.firstOpen ? "input-container-fadein" : "input-container-fadeout"}>
         <input
           value={this.state.input}
           onChange={this.changeInput}
