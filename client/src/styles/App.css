@@ -1,24 +1,138 @@
-body, html, #root, .App {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 0;
-    grid-template-rows: 0;
-    grid-row-gap: 0;
-    width: 100vw;
-    height: 100vh;
+@import url("https://fonts.googleapis.com/css?family=Orbitron");
+
+/** Global Presets */
+*:focus {
+    outline: none;
 }
 
-.Bot {
-    grid-column-start: 2;
-    grid-column-end: 3; 
+body {
+    margin: 0;
+    overflow: scroll;
 }
 
-.input-container-fadein {
+input {
+    border: black;
+    background-color: black;
+    color: red;
+    font-family: "Orbitron";
+    caret-color: red;
+    font-size: 3vh;
+}
+
+/** Transitions */
+.fadein {
     opacity: 1;
     transition: 2s;
 }
 
-.input-container-fadeout {
+.fadeout {
     opacity: 0;
     transition: 1s;
 }
+
+
+/** Grid Definition */
+.WebCanvas {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 0;
+    grid-template-rows: repeat(10, 1fr);
+    grid-row-gap: 0;
+    background-color: #f0ead6;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+}
+
+/** Bot Terminal */
+.Bot {
+    grid-area: 3/3/8/5;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 100%;
+    border: 1px solid red;
+}
+
+.messages {
+    overflow-y: scroll;
+    
+}
+
+.message {
+    color: #333333;
+    font-family: 'Orbitron';
+    font-size: 2vh;
+    margin: 5%;
+}
+
+.BOT {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: right;
+}
+
+.USER {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    color: #667dc7;
+}
+
+/** User Input */
+
+.inbox {
+    grid-area: 9/3/10/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+/** Linework/Aesthetics */
+
+.linebox1 {
+    grid-area: 1/1/2/2;
+    border-right: 1px solid red;
+}
+
+.linebox2 {
+    grid-area: 2/2/3/4;
+    border-top: 1px solid red;
+    border-right: 1px solid red;
+}
+
+.linebox3 {
+    grid-area: 6/1/7/3;
+    border-top: 1px solid red;
+}
+
+.linebox4 {
+    grid-area: 6/5/7/6;
+    border-top: 1px solid red;
+    border-right: 1px solid red;
+}
+
+.linebox5 {
+    grid-area: 6/6/7/7;
+    border-bottom: 1px solid red;
+}
+
+.linebox6 {
+    grid-area: 8/1/9/4;
+    border-right: 1px solid red;
+}
+
+.linebox7 {
+    grid-area: 10/1/11/4;
+    border-right: 1px solid red;
+}
+
+
+
+
+
+
+

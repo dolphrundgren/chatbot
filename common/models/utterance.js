@@ -6,8 +6,8 @@ const AWS = require("aws-sdk");
 const awsRegion = "us-east-1";
 
 AWS.config.update({
-  accessKeyId: "AKIAI77BV3U7O4ZI5YHA",
-  secretAccessKey: "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",
+  accessKeyId: "AKIAISGZQR4DXKGU4VIA",
+  secretAccessKey: " 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 ",
   region: awsRegion,
 });
 
@@ -15,8 +15,8 @@ const lexruntime = new AWS.LexRuntime();
 const crypto = require("crypto");
 
 const params = {
-  botAlias: "ResumeBot" /* required */,
-  botName: "ResumeBot" /* required */
+  botAlias: "CVBot" /* required */,
+  botName: "CVBot" /* required */
 };
 
 

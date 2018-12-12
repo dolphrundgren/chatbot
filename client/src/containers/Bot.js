@@ -4,12 +4,17 @@ import "../styles/Bot.css";
 import Typing from 'react-typing-animation';
 
 class Bot extends Component {
-  state = {
-    sessionkey: null,
-    input: "",
-    messages: [],
-    firstOpen: false
-  };
+  constructor(props){
+    super(props)
+    this.state = {
+      sessionkey: null,
+      input: "",
+      messages: [],
+      firstOpen: false
+    };
+    this.textMessage = React.createRef();
+    this.scrollToRecentTextMessage = this.scrollToRecentTextMessage.bind(this); 
+  }
 
   componentDidMount = () => {
     fetch('/api/utterances/openingStatement', {
@@ -24,6 +29,10 @@ class Bot extends Component {
       })
   }
 
+  scrollToRecentTextMessage () {
+    this.textMessage.current.scrollIntoView( {behavior: "smooth"} );
+  }
+
   recordMessage = (sender, message) => {
     this.setState({
       messages: this.state.messages.concat({
@@ -31,6 +40,7 @@ class Bot extends Component {
         MESSAGE: message
       })
     })
+    this.scrollToRecentTextMessage();
   }
 
   submitMessage = () => {
@@ -69,11 +79,11 @@ class Bot extends Component {
 
     const messages = (
       <div className="messages">
-        <div className="messages-inner">
           {
             this.state.messages.map((message, index) => {
               return (
                 <div
+                  ref={this.textMessage}
                   key={message.SENDER + index}
                   className={`message ${message.SENDER}`}>
                   {message.SENDER == 'BOT' 
@@ -83,23 +93,35 @@ class Bot extends Component {
               )
             })
           }
-        </div>
       </div>
     )
 
+
     const input = (
-      <div className={this.state.firstOpen ? "input-container-fadein" : "input-container-fadeout"}>
-        <input
-          value={this.state.input}
-          onChange={this.changeInput}
-          onKeyPress={this.handleKeyPress} />
+      <div className= "inbox">
+        <div className= {this.state.firstOpen ? "fadein" : "fadeout"}>
+          <input
+            autofocus= "true"
+            value={this.state.input}
+            onChange={this.changeInput}
+            onKeyPress={this.handleKeyPress} />
+        </div>
       </div>
     );
 
     return(
-      <div className="Bot">
-        {messages}
-        {input}
+      <div className="WebCanvas">
+        <div className="Bot">
+          {messages}
+        </div>
+         {input}
+        <div className="linebox1"></div>
+        <div className="linebox2"></div>
+        <div className="linebox3"></div>
+        <div className="linebox4"></div>
+        <div className="linebox5"></div>
+        <div className="linebox6"></div>
+        <div className="linebox7"></div>
       </div>
     );
   }
