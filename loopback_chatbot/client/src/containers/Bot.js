@@ -101,7 +101,7 @@ class Bot extends Component {
       <div className= "inbox">
         <div className= {this.state.firstOpen ? "fadein" : "fadeout"}>
           <input
-            autofocus= "true"
+            autoFocus= "true"
             value={this.state.input}
             onChange={this.changeInput}
             onKeyPress={this.handleKeyPress} />
