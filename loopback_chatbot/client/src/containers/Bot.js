@@ -10,7 +10,7 @@ class Bot extends Component {
       sessionkey: null,
       input: "",
       messages: [],
-      firstOpen: false
+      firstOpen: true
     };
     this.textMessage = React.createRef();
     this.scrollToRecentTextMessage = this.scrollToRecentTextMessage.bind(this); 
@@ -30,7 +30,7 @@ class Bot extends Component {
   }
 
   scrollToRecentTextMessage () {
-    this.textMessage.current.scrollIntoView( {behavior: "smooth"} );
+    this.textMessage.current.scrollIntoView();
   }
 
   recordMessage = (sender, message) => {
@@ -87,7 +87,7 @@ class Bot extends Component {
                   key={message.SENDER + index}
                   className={`message ${message.SENDER}`}>
                   {message.SENDER == 'BOT' 
-                    ? <Typing speed={20} hideCursor onFinishedTyping = {() =>{this.setState({ firstOpen: true})}}>  <span> {message.MESSAGE} </span> </Typing>
+                    ? <Typing speed={20} hideCursor onFinishedTyping = {() =>{this.setState({ firstOpen: true}), this.scrollToRecentTextMessage()}}>  <span> {message.MESSAGE} </span> </Typing>
                     : message.MESSAGE}
                 </div> 
               )
@@ -101,7 +101,7 @@ class Bot extends Component {
       <div className= "inbox">
         <div className= {this.state.firstOpen ? "fadein" : "fadeout"}>
           <input
-            autoFocus= "true"
+            autoFocus={true}
             value={this.state.input}
             onChange={this.changeInput}
             onKeyPress={this.handleKeyPress} />
