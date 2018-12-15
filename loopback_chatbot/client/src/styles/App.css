@@ -93,7 +93,7 @@ h4 {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #000080;
+    border: 2px solid #000080;
 }
 
 /** Linework/Aesthetics */
@@ -120,18 +120,18 @@ h4 {
 
 .linebox3 {
     grid-area: 12/1/14/5;
-    border-top: 1px solid #000080;
+    border-top: 3px solid white;
 }
 
 .linebox4 {
     grid-area: 12/9/14/11;
-    border-top: 1px solid #000080;
-    border-right: 1px solid #000080;
+    border-top: 3px solid white;
 }
 
 .linebox5 {
     grid-area: 12/11/14/14;
-    border-bottom: 1px solid #000080;
+    border-left: 3px solid white;
+    border-bottom: 3px solid white;
 }
 
 .linebox6 {
@@ -146,42 +146,42 @@ h4 {
 
 .corner1a {
     grid-area: 6/4/7/5;
-    border-right: 1px solid #000080;
+    border-right: 2.5px solid #000080;
 }
 
 .corner1b {
     grid-area: 5/5/6/6;
-    border-bottom: 1px solid #000080;
+    border-bottom: 2.5px solid #000080;
 }
 
 .corner2a {
     grid-area: 5/8/6/9;
-    border-bottom: 1px solid #000080;
+    border-bottom: 2.5px solid #000080;
 }
 
 .corner2b {
     grid-area: 6/9/7/10;
-    border-left: 1px solid #000080;
+    border-left: 2.5px solid #000080;
 }
 
 .corner3a {
     grid-area: 15/9/16/10;
-    border-left: 1px solid #000080;
+    border-left: 2.5px solid #000080;
 }
 
 .corner3b {
     grid-area: 16/8/17/9;
-    border-top: 1px solid #000080;
+    border-top: 2.5px solid #000080;
 }
 
 .corner4a {
     grid-area: 16/5/17/6;
-    border-top: 1px solid #000080;
+    border-top: 2.5px solid #000080;
 }
 
 .corner4b {
     grid-area: 15/4/16/5;
-    border-right: 1px solid #000080;
+    border-right: 2.5px solid #000080;
 }
 
 
