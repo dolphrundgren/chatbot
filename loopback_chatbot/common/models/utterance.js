@@ -28,7 +28,7 @@ module.exports = utterance => {
       // create a unique sessionid to keep track of the session
    
       let response = { 
-        message: "Hi there. You are interacting with Hunter Templeman's ResumeBot!",
+        message: "Hello there, you are interacting with a Resume Bot that was built by Hunter Templeman. Type a question into the box below and see where the conversation goes!",
         sessionid: sessionid
       }
 
@@ -37,6 +37,10 @@ module.exports = utterance => {
       cb(null, sessionid, response)
 
     };
+
+    utterance.openingQuestion = cb => {
+
+    }
 
     utterance.remoteMethod("openingStatement", {
       returns: [

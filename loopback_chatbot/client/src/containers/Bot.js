@@ -10,7 +10,8 @@ class Bot extends Component {
       sessionkey: null,
       input: "",
       messages: [],
-      firstOpen: true
+      botOpener: false,
+      userOpener: false
     };
     this.textMessage = React.createRef();
     this.scrollToRecentTextMessage = this.scrollToRecentTextMessage.bind(this); 
@@ -47,7 +48,7 @@ class Bot extends Component {
     let message = this.state.input;
     this.setState({ input: "" })
     this.recordMessage('USER', message)
-
+    this.setState({ userOpener: true })
     fetch('/api/utterances/message', {
       method: 'POST',
       headers: {
@@ -86,8 +87,8 @@ class Bot extends Component {
                   ref={this.textMessage}
                   key={message.SENDER + index}
                   className={`message ${message.SENDER}`}>
-                  {message.SENDER == 'BOT' 
-                    ? <Typing speed={20} hideCursor onFinishedTyping = {() =>{this.setState({ firstOpen: true}), this.scrollToRecentTextMessage()}}>  <span> {message.MESSAGE} </span> </Typing>
+                  {this.state.botOpener == false
+                    ? <Typing speed={20} hideCursor onFinishedTyping = {() =>{this.setState({ botOpener: true }), this.scrollToRecentTextMessage()}}>  <span> {message.MESSAGE} </span> </Typing>
                     : message.MESSAGE}
                 </div> 
               )
@@ -99,9 +100,9 @@ class Bot extends Component {
 
     const input = (
       <div className= "inbox">
-        <div className= {this.state.firstOpen ? "fadein" : "fadeout"}>
+        <div className= {this.state.botOpener ? "fadein" : "fadeout"}>
           <input
-            autoFocus={true}
+            placeholder={ this.state.userOpener ? "" : "Begin A\n Conversation" }
             value={this.state.input}
             onChange={this.changeInput}
             onKeyPress={this.handleKeyPress} />
@@ -115,13 +116,21 @@ class Bot extends Component {
           {messages}
         </div>
          {input}
-        <div className="linebox1"></div>
+        <div className="linebox1"><h4>Disclaimer: <br />All conversations are recorded <br />into a MySQL database.</h4></div>
         <div className="linebox2"></div>
         <div className="linebox3"></div>
         <div className="linebox4"></div>
         <div className="linebox5"></div>
         <div className="linebox6"></div>
         <div className="linebox7"></div>
+        <div className="corner1a"></div>
+        <div className="corner2a"></div>
+        <div className="corner3a"></div>
+        <div className="corner4a"></div>
+        <div className="corner1b"></div>
+        <div className="corner2b"></div>
+        <div className="corner3b"></div>
+        <div className="corner4b"></div>
       </div>
     );
   }

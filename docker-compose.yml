@@ -29,9 +29,11 @@ services:
       - "443:443"
       networks:
       - "reswork"
+      ## Change the file path by switching the words dev and prod to fit your deployment stage.
       volumes:
-      - ./nginx_reverse_proxy/nginx.conf:/etc/nginx/nginx.conf
-      - /etc/letsencrypt/:/etc/letsencrypt/
+      - ./nginx_reverse_proxy/dev/nginx.conf:/etc/nginx/nginx.conf
+      ## Uncomment the following line in order to access ssl keys in production environment.
+      ##- /etc/letsencrypt/:/etc/letsencrypt/
 networks:
   reswork:
 
