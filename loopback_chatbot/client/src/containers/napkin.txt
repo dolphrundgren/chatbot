@@ -1,6 +1,0 @@
-Problem: 
-        The scroll component is being called at inopportune times, such as when a message is being typed out but not yet completed. 
-        This results in the scroll bar only partially focused on the incoming text from the BOT.
-
-Solution: 
-        Maybe you can throw some boolean values around that can refine the calls on the scroll component. 

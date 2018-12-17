@@ -54,15 +54,9 @@ h4 {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
-}
-
-
-.messages {
-    overflow-y: scroll;
-    
-}
+}  
 
 .message {
     color: #333333;
