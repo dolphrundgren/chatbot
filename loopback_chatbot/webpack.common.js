@@ -1,8 +1,6 @@
-const webpack = require('webpack');
 const path = require('path');
 
-const config = {
-  mode: 'development',
+module.exports = {
   entry: './client/src/index.js',
   output: {
     path: path.resolve(__dirname, 'client/dist'),
@@ -32,5 +30,3 @@ const config = {
     ]
   }
 }
-
-module.exports = config;
