@@ -3,15 +3,18 @@
 botoption=$1
 imagename=$2
 
-if [ $botoption == "production" ]
+if [ $botoption == "production test" ]
 then
-	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up 
+	cd loopback_chatbot && npm run prod && cd .. && docker-compose -f docker-compose.yml -f docker-compose.prod.yml up 
+elif [ $botoption == "production deploy"]
+then
+	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 elif [ $botoption == "development" ]
 then
-	docker-compose up 
+	cd loopback_chatbot && npm run dev && cd .. && docker-compose up 
 elif [ $botoption == "refactor" ]
 then
-	docker-compose down && docker rmi $imagename && cd loopback_chatbot && npm run build && cd .. && docker-compose up
+	docker-compose down && docker rmi $imagename && cd loopback_chatbot && npm run dev && cd .. && docker-compose up
 elif [ $botoption == "teardown" ]
 then
     docker-compose down && docker rmi $imagename

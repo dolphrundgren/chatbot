@@ -4,7 +4,7 @@ services:
   web:
       build: ./loopback_chatbot/
       environment:
-          NODE_ENV: production
+          NODE_ENV: development
       ports:
       - "3000"
       networks:
