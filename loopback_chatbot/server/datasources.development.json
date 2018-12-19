@@ -1,5 +1,5 @@
 {
-    "resume": {
+    "resume": { 
         "name": "resume",
         "connector": "mysql",
         "host": "db",
