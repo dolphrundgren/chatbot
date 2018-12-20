@@ -3,10 +3,10 @@
 botoption=$1
 imagename=$2
 
-if [ $botoption == "production test" ]
+if [ $botoption == "production-test" ]
 then
 	cd loopback_chatbot && npm run prod && cd .. && docker-compose -f docker-compose.yml -f docker-compose.prod.yml up 
-elif [ $botoption == "production deploy"]
+elif [ $botoption == "production-deploy" ]
 then
 	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 elif [ $botoption == "development" ]
