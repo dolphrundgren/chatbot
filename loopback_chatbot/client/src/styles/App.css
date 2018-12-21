@@ -2,168 +2,272 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 
 /** Global Presets */
-*:focus {
-    outline: none;
+
+@media screen and (min-width: 800px) {
+
+    *:focus {
+        outline: none;
+    }
+
+    body {
+        margin: 0;
+        overflow: scroll;
+    }
+
+    input {
+        border: #f0ead6;
+        background-color: #f0ead6;
+        color: red;
+        font-family: "Orbitron";
+        caret-color: red;
+        font-size: 2vh;
+    }
+
+    h4 {
+        border: black;
+    }
+    /** Transitions */
+    .fadein {
+        opacity: 1;
+        transition: 2s;
+    }
+
+    .fadeout {
+        opacity: 0;
+        transition: 1s;
+    }
+
+    /** Grid Definition */
+    .WebCanvas {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-column-gap: 0;
+        grid-template-rows: repeat(20, 1fr);
+        grid-row-gap: 0;
+        background-color: #C0C0C0;
+        width: 100vw;
+        height: 100vh;
+        overflow: scroll;
+    }
+
+    /** Bot Terminal */
+    .Bot {
+        grid-area: 6/5/16/9;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        overflow-y: auto;
+        height: 100%;
+    }  
+
+    .message {
+        color: #333333;
+        font-family: 'Orbitron';
+        font-size: 2vh;
+        margin: 5%;
+    }
+
+    .BOT {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: right;
+        text-shadow: 0.25px 0.25px 0px red;
+    }
+
+    .USER {
+        display: flex;
+        justify-content: flex-start;
+        text-align: left;
+        color: #667dc7;
+    }
+
+    /** User Input */
+
+    .inbox {
+        grid-area: 18/5/20/9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #000080;
+    }
+
+    /** Linework/Aesthetics */
+
+    .linebox1 {
+        grid-area: 1/1/3/3;
+        border-right: 2px solid #000080;
+        font-family: "Nunito";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+        font-size: 1.5vh;
+        color: black;
+        text-shadow: 0.25px 0.25px 0px red;
+    }
+
+
+    .linebox2 {
+        grid-area: 3/3/6/5;
+        border-top: 2px solid #000080;
+        border-right: 2px solid #000080;
+    }
+
+    .linebox6 {
+        grid-area: 16/5/18/8;
+        border-right: 2px solid #000080;
+    }
+
+    .linebox7 {
+        grid-area: 20/1/21/6;
+        border-right: 2px solid #000080;
+    }
+
+    .corner1a {
+        grid-area: 6/4/7/5;
+        border-right: 2.5px solid #000080;
+    }
+
+    .corner1b {
+        grid-area: 5/5/6/6;
+        border-bottom: 2.5px solid #000080;
+    }
+
+    .corner2a {
+        grid-area: 5/8/6/9;
+        border-bottom: 2.5px solid #000080;
+    }
+
+    .corner2b {
+        grid-area: 6/9/7/10;
+        border-left: 2.5px solid #000080;
+    }
+
+    .corner3a {
+        grid-area: 15/9/16/10;
+        border-left: 2.5px solid #000080;
+    }
+
+    .corner3b {
+        grid-area: 16/8/17/9;
+        border-top: 2.5px solid #000080;
+    }
+
+    .corner4a {
+        grid-area: 16/5/17/6;
+        border-top: 2.5px solid #000080;
+    }
+
+    .corner4b {
+        grid-area: 15/4/16/5;
+        border-right: 2.5px solid #000080;
+    }
 }
 
-body {
-    margin: 0;
-    overflow: scroll;
+@media only screen and (min-width: 0) and (max-width: 799px) {
+
+    *:focus {
+        outline: none;
+    }
+    
+    body {
+        margin: 0;
+        overflow: scroll;
+    }
+    
+    input {
+        border: #f0ead6;
+        background-color: #f0ead6;
+        color: red;
+        font-family: "Orbitron";
+        caret-color: red;
+        font-size: 2vh;
+    }
+    
+    h4 {
+        border: black;
+    }
+    /** Transitions */
+    .fadein {
+        opacity: 1;
+        transition: 2s;
+    }
+    
+    .fadeout {
+        opacity: 0;
+        transition: 1s;
+    }
+
+
+    /** Grid Definition */
+    .WebCanvas {
+        display: grid;
+        grid-template-columns: none;
+        grid-column-gap: 0;
+        grid-template-rows: repeat(6, 1fr);
+        grid-row-gap: 0;
+        background-color: #C0C0C0;
+        width: 100vw;
+        height: 100vh;
+        overflow: scroll;
+    }
+
+    .linebox1 {
+        grid-row: 1;
+        border-bottom: 1px solid #000080;
+        font-family: "Nunito";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+        font-size: 1.5vh;
+        color: black;
+        text-shadow: 0.25px 0.25px 0px red;
+    }
+
+    /** Bot Terminal */
+    .Bot {
+        grid-row: 2 / 6;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        overflow-y: auto;
+        height: 100%;
+    }  
+
+    .message {
+        color: #333333;
+        font-family: 'Orbitron';
+        font-size: 2vh;
+        margin: 5%;
+    }
+
+    .BOT {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: right;
+        text-shadow: 0.25px 0.25px 0px red;
+    }
+
+    .USER {
+        display: flex;
+        justify-content: flex-start;
+        text-align: left;
+        color: #667dc7;
+    }
+
+    /** User Input */
+
+    .inbox {
+        grid-row: 6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #000080;
+    }
 }
-
-input {
-    border: #f0ead6;
-    background-color: #f0ead6;
-    color: red;
-    font-family: "Orbitron";
-    caret-color: red;
-    font-size: 2vh;
-}
-
-h4 {
-    border: black;
-}
-/** Transitions */
-.fadein {
-    opacity: 1;
-    transition: 2s;
-}
-
-.fadeout {
-    opacity: 0;
-    transition: 1s;
-}
-
-
-/** Grid Definition */
-.WebCanvas {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-column-gap: 0;
-    grid-template-rows: repeat(20, 1fr);
-    grid-row-gap: 0;
-    background-color: #C0C0C0;
-    width: 100vw;
-    height: 100vh;
-    overflow: scroll;
-}
-
-/** Bot Terminal */
-.Bot {
-    grid-area: 6/5/16/9;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    overflow-y: auto;
-    height: 100%;
-}  
-
-.message {
-    color: #333333;
-    font-family: 'Orbitron';
-    font-size: 2vh;
-    margin: 5%;
-}
-
-.BOT {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: right;
-    text-shadow: 0.25px 0.25px 0px red;
-}
-
-.USER {
-    display: flex;
-    justify-content: flex-start;
-    text-align: left;
-    color: #667dc7;
-}
-
-/** User Input */
-
-.inbox {
-    grid-area: 18/5/20/9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #000080;
-}
-
-/** Linework/Aesthetics */
-
-.linebox1 {
-    grid-area: 1/1/3/3;
-    border-right: 2px solid #000080;
-    font-family: "Nunito";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    font-size: 1.5vh;
-    color: black;
-    text-shadow: 0.25px 0.25px 0px red;
-}
-
-
-.linebox2 {
-    grid-area: 3/3/6/5;
-    border-top: 2px solid #000080;
-    border-right: 2px solid #000080;
-}
-
-.linebox6 {
-    grid-area: 16/5/18/8;
-    border-right: 2px solid #000080;
-}
-
-.linebox7 {
-    grid-area: 20/1/21/6;
-    border-right: 2px solid #000080;
-}
-
-.corner1a {
-    grid-area: 6/4/7/5;
-    border-right: 2.5px solid #000080;
-}
-
-.corner1b {
-    grid-area: 5/5/6/6;
-    border-bottom: 2.5px solid #000080;
-}
-
-.corner2a {
-    grid-area: 5/8/6/9;
-    border-bottom: 2.5px solid #000080;
-}
-
-.corner2b {
-    grid-area: 6/9/7/10;
-    border-left: 2.5px solid #000080;
-}
-
-.corner3a {
-    grid-area: 15/9/16/10;
-    border-left: 2.5px solid #000080;
-}
-
-.corner3b {
-    grid-area: 16/8/17/9;
-    border-top: 2.5px solid #000080;
-}
-
-.corner4a {
-    grid-area: 16/5/17/6;
-    border-top: 2.5px solid #000080;
-}
-
-.corner4b {
-    grid-area: 15/4/16/5;
-    border-right: 2.5px solid #000080;
-}
-
-
-
 
 
 
