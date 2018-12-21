@@ -28,7 +28,7 @@ module.exports = utterance => {
       // create a unique sessionid to keep track of the session
    
       let response = { 
-        message: "Hello there, you are interacting with a Resume Bot that was built by Hunter Templeman. Type a question into the box below and see where the conversation goes!",
+        message: "Hello there, you are interacting with a Resume Bot that was built by Hunter Templeman. Type a question into the box below to begin a conversation.",
         sessionid: sessionid
       }
 
