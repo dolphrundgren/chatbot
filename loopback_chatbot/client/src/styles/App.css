@@ -183,6 +183,8 @@
         font-family: "Orbitron";
         caret-color: red;
         font-size: 2vh;
+        height: 2.5em;
+        width: 20em;
     }
     
     h4 {
