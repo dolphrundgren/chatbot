@@ -1,7 +1,7 @@
 {
   "name": "utterance",
   "base": "PersistedModel",
-  "datasource": "resume",
+  "datasource": "DatabaseName",
   "idInjection": true,
   "options": {
     "validateUpsert": true
